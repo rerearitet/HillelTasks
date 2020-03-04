@@ -1,10 +1,5 @@
 package com.antongorokh.lesson2task2;
 
-import com.antongorokh.lesson2task2.Cat;
-
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println(Util.getDistance(1, 2, 5, 13));
