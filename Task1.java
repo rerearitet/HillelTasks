@@ -2,7 +2,11 @@ package com.company.lesson1;
 
 public class Task1 {
     public static void main(String[] args) {
-        recursionFunc(1, 100);
+        try {
+            recursionFunc(1, Integer.parseInt(args[0]));
+        } catch (Exception e) {
+
+        }
     }
 
     public static void recursionFunc(int number, int goalNumber) {
