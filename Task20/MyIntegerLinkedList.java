@@ -8,12 +8,11 @@ public class MyIntegerLinkedList {
         size = 0;
     }
 
-    public void add (int index, int element) throws IndexOutOfBoundsException {
+    public void add(int index, int element) throws IndexOutOfBoundsException {
         if (index == 0) {
             firstNode = new IntegerNode(element, firstNode);
             size++;
-        }
-        else if (isIndexValid(index)) {
+        } else if (isIndexValid(index)) {
             IntegerNode integerNode = firstNode;
             for (int i = 0; i < index - 1; i++) {
                 integerNode = integerNode.nextNode;
@@ -24,7 +23,8 @@ public class MyIntegerLinkedList {
             throw new IndexOutOfBoundsException();
         }
     }
-    public int get (int index) throws IndexOutOfBoundsException {
+
+    public int get(int index) throws IndexOutOfBoundsException {
         if (isIndexValid(index)) {
             IntegerNode integerNode = firstNode;
             for (int i = 0; i < index; i++) {
@@ -35,7 +35,8 @@ public class MyIntegerLinkedList {
             throw new IndexOutOfBoundsException();
         }
     }
-    public void set (int index, int element) throws IndexOutOfBoundsException {
+
+    public void set(int index, int element) throws IndexOutOfBoundsException {
         if (isIndexValid(index)) {
             IntegerNode integerNode = firstNode;
             for (int i = 0; i < index; i++) {
@@ -43,10 +44,11 @@ public class MyIntegerLinkedList {
             }
             integerNode.element = element;
         } else {
-            throw  new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException();
         }
     }
-    public void remove (int index) throws IndexOutOfBoundsException {
+
+    public void remove(int index) throws IndexOutOfBoundsException {
         if (isIndexValid(index)) {
             IntegerNode integerNode = firstNode;
             if (index == 0) firstNode = integerNode.nextNode;

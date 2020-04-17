@@ -20,19 +20,20 @@ public class Main {
         System.out.println(myList.toString());
 
         System.out.println("--------------------------------");
-            MyIntegerLinkedList myIntegerLinkedList = new MyIntegerLinkedList();
-            myIntegerLinkedList.add(0, 1);
-            myIntegerLinkedList.add(0, 2);
-            myIntegerLinkedList.add(0, 3);
-            myIntegerLinkedList.add(0, 4);
-            myIntegerLinkedList.add(0, 5);
-            System.out.println(myIntegerLinkedList.toString());
-            System.out.println(myIntegerLinkedList.get(3));
-            myIntegerLinkedList.add(3, 6);
-            System.out.println(myIntegerLinkedList.toString());
-            myIntegerLinkedList.set(1, 7);
-            System.out.println(myIntegerLinkedList.toString());
-            myIntegerLinkedList.remove(2);
-            System.out.println(myIntegerLinkedList.toString());
+
+        MyIntegerLinkedList myIntegerLinkedList = new MyIntegerLinkedList();
+        myIntegerLinkedList.add(0, 1);
+        myIntegerLinkedList.add(0, 2);
+        myIntegerLinkedList.add(0, 3);
+        myIntegerLinkedList.add(0, 4);
+        myIntegerLinkedList.add(0, 5);
+        System.out.println(myIntegerLinkedList.toString());
+        System.out.println(myIntegerLinkedList.get(3));
+        myIntegerLinkedList.add(3, 6);
+        System.out.println(myIntegerLinkedList.toString());
+        myIntegerLinkedList.set(1, 7);
+        System.out.println(myIntegerLinkedList.toString());
+        myIntegerLinkedList.remove(2);
+        System.out.println(myIntegerLinkedList.toString());
     }
 }
