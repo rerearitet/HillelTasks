@@ -1,6 +1,7 @@
 package task31;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,11 +11,10 @@ public class Main {
         cars.add(new Car("Бумер", 1555));
         cars.add(new Car("Бумер", 2000));
 
-        PrintCarsWithParameters printCarsWithParameters = (c,x, y) -> {
-            for (int i = 0; i < c.size(); i++) {
-                if (c.get(i).bodyType.equals(x) && c.get(i).weight < y) System.out.println(c.get(i));;
-            }
+        Predicate carPredicate = (x) -> {
+            if (x instanceof Car && ((Car) x).weight < 2000 && ((Car) x).bodyType.equals("Седан")) return true;
+            else return false;
         };
-        printCarsWithParameters.print(cars, "Седан", 2000);
+        for (int i = 0; i < cars.size(); i++) if (carPredicate.test(cars.get(i))) System.out.println(cars.get(i));
     }
 }
