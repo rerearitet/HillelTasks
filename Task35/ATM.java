@@ -11,13 +11,11 @@ public class ATM { /* <currency> <value> <number> | USD 100 30, ArrayList<Pair<c
     private ArrayList<Pair<String, Pair<Integer, Integer>>> atm = new ArrayList<>();
     private String regex;
 
-    private ATM() {
-    }
+    private ATM() { }
 
     public ATM(String regex) {
         this.regex = regex;
     }
-
 
     public void input(String input) {
         String[] split = input.split(regex);
@@ -27,8 +25,8 @@ public class ATM { /* <currency> <value> <number> | USD 100 30, ArrayList<Pair<c
             } else if (split[0].equals("-")) {
                 removeCurrency(Arrays.copyOfRange(split, 1, split.length)); // copy array without 1st element("-" here).
             } else if (split[0].equals("?")) {
-                sortByCurrencyATM();
-                for (int i = 0; i < atm.size(); i++) printElementATM(atm.get(i));
+                sortByCurrency();
+                for (int i = 0; i < atm.size(); i++) printElement(atm.get(i));
             } else {
                 System.out.println("Unknown command. ");
             }
@@ -56,12 +54,12 @@ public class ATM { /* <currency> <value> <number> | USD 100 30, ArrayList<Pair<c
             System.out.println("Not enough money. ");
             return;
         }
+        sortByCurrency();
         for (int i = 0; i < atm.size(); i++) {
             if (atm.get(i).getKey().equals(input[0])) {
                 currency.add(atm.get(i).getValue());
             }
         }
-        sortByValues(currency);
         for (int i = 0; i < currency.size(); i++) {
             int startNumber = currency.get(i).getValue();
             while ((amount - currency.get(i).getKey()) >= 0 && currency.get(i).getValue() > 0) {
@@ -133,22 +131,8 @@ public class ATM { /* <currency> <value> <number> | USD 100 30, ArrayList<Pair<c
         return false;
     }
 
-
-    private void sortByValues(ArrayList<Pair<Integer, Integer>> arrayList) {
+    private void sortByCurrency() {
         // P.S: comparator stopped me for almost a day ;/
-        Collections.sort(arrayList, new Comparator<>() {
-            @Override
-            public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) {
-                return comparePair(p1, p2);
-            }
-
-            private int comparePair(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) {
-                return p2.getKey().compareTo(p1.getKey());
-            }
-        });
-    }
-
-    private void sortByCurrencyATM() {
         Collections.sort(atm, new Comparator<>() {
             @Override
             public int compare(Pair<String, Pair<Integer, Integer>> p1, Pair<String, Pair<Integer, Integer>> p2) {
@@ -165,7 +149,7 @@ public class ATM { /* <currency> <value> <number> | USD 100 30, ArrayList<Pair<c
         });
     }
 
-    private void printElementATM(Pair<String, Pair<Integer, Integer>> pair) {
+    private void printElement(Pair<String, Pair<Integer, Integer>> pair) {
         System.out.println(pair.getKey() + regex + pair.getValue().getKey() + regex + pair.getValue().getValue());
     }
 }
